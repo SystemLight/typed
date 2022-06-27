@@ -1,7 +1,11 @@
 class TypedText {
-    constructor(dom, text, typingSpeed = 100) {
+    constructor(domOrSelector, text, typingSpeed = 100) {
         this._e = new EventTarget();
-        this.dom = dom
+        if (typeof domOrSelector === 'string') {
+            this.dom = document.querySelector(domOrSelector)
+        } else {
+            this.dom = domOrSelector
+        }
         this.text = text
         this.textSize = text.length
         this.typingSpeed = typingSpeed
@@ -32,12 +36,11 @@ class TypedText {
     }
 }
 
-function typedNode(dom, text, onTyped, typingSpeed = 100) {
-    let tt = new TypedText(dom, text, typingSpeed)
+function typedNode(domOrSelector, text, onTyped, typingSpeed = 100) {
+    let tt = new TypedText(domOrSelector, text, typingSpeed)
     let _onTyped = onTyped || ((e) => tt.dom.innerHTML += e.detail[0])
     tt.on('typed', _onTyped)
-    return tt.promise().then((result) => {
+    return tt.promise().then(() => {
         tt.off('typed', _onTyped)
-        return result
     })
 }
