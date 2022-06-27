@@ -1,0 +1,25 @@
+{
+  "name": "@systemlight/typed",
+  "version": "1.0.0",
+  "scripts": {},
+  "keywords": [
+    "typed",
+    "animation",
+    "promise"
+  ],
+  "description": "Simulate the animation effect of typing.",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "author": "SystemLight",
+  "license": "MIT",
+  "homepage": "https://github.com/SystemLight/typed#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SystemLight/typed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SystemLight/typed/issues"
+  }
+}
